@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Dapper;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace BestBuyBlazorDemoWebApp.Data
 {
