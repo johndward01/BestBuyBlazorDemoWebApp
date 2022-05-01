@@ -1,13 +1,22 @@
 using BestBuyBlazorDemoWebApp.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<ProductRepo>();
+builder.Services.AddScoped<IDbConnection>((s) =>
+{
+    IDbConnection conn = new MySqlConnection(builder.Configuration.GetConnectionString("bestbuy"));
+    conn.Open();
+    return conn;
+});
 
 var app = builder.Build();
 
