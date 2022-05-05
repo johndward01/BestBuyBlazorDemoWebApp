@@ -1,16 +1,11 @@
 ﻿@page "/"
 @using BestBuyBlazorDemoWebApp.Data
 @inject ProductRepo repo
-@inject NavigationManager NavigationManager
 
 @{
-    var products = repo.GetAllProducts();
-
-    void ViewProduct()
-    {
-        NavigationManager.NavigateTo("ViewProduct");
-    }
+    var products = repo.GetAllProducts();    
 }
+
 
 <h1 class="">Products</h1>
 
@@ -27,7 +22,7 @@
         @foreach (var p in products)
         {
             <tr>
-                <td><button class="btn btn-primary" @onclick="ViewProduct">@p.ProductID</button></td>
+                <td><a href="/ViewProduct/@p.ProductID">@p.ProductID</a></td>
                 <td>@p.Name</td>
                 <td>@p.Price</td>
                 <td>@p.CategoryID</td>

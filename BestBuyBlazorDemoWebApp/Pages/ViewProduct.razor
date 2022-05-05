@@ -1,7 +1,19 @@
 ﻿@page "/ViewProduct"
+@page "/ViewProduct/{id:int}"
+@using BestBuyBlazorDemoWebApp.Data
+@inject ProductRepo repo
 
-<h3>ViewProduct</h3>
+<h3>@product.ProductID</h3>
+<h3>@product.Name</h3>
+<h3>@product.Price</h3>
+<h3>@product.CategoryID</h3>
+<h3>@product.OnSale</h3>
+<h3>@product.StockLevel</h3>
+<h3>@product.Categories</h3>
 
 @code {
 
+    [Parameter]
+    public int ID { get; set; }
+    public Product product => repo.ViewProduct(ID);
 }
