@@ -3,13 +3,20 @@
 @using BestBuyBlazorDemoWebApp.Data
 @inject ProductRepo repo
 
-<h3>@product.ProductID</h3>
-<h3>@product.Name</h3>
-<h3>@product.Price</h3>
-<h3>@product.CategoryID</h3>
-<h3>@product.OnSale</h3>
-<h3>@product.StockLevel</h3>
-<h3>@product.Categories</h3>
+<div class="border border-5 border-primary rounded-pill  m-5 p-5 text-center">
+    <h1>View Product @ID</h1>
+</div>
+
+<div class="border border-5 border-primary m-3 p-3">
+    <h3><span class="text-white-50">Product ID:</span> @product.ProductID</h3>
+    <h3><span class="text-white-50">Product Name:</span> @product.Name</h3>
+    <h3><span class="text-white-50">Product Price:</span> @product.Price</h3>
+    <h3><span class="text-white-50">Product Category ID:</span> @product.CategoryID</h3>
+    <h3><span class="text-white-50">Product is on Sale:</span> @product.OnSale</h3>
+    <h3><span class="text-white-50">Product's Current Stock Level:</span> @product.StockLevel</h3>
+    <h3><span class="text-white-50">Product's List of Cetegories:</span> @product.Categories</h3>
+</div>
+
 
 @code {
 
