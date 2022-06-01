@@ -12,6 +12,11 @@
     <PackageReference Include="MySql.Data" Version="8.0.28" />
   </ItemGroup>
 
+	<!--Trying out Scoped Style Sheets from here: https://www.daveabrock.com/2020/09/10/blazor-css-isolation/-->
+	<ItemGroup>
+		<PackageReference Include="Delegate.SassBuilder" Version="1.4.0" />
+	</ItemGroup>
+
   <ItemGroup>
     <Content Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

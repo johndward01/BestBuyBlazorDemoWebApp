@@ -1,0 +1,12 @@
+﻿$color: red;
+$font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+h1 {
+    color: $color;
+    font-family: $font;
+}
+
+th {
+    border: 5px solid green;
+    margin: 10px;
+}
