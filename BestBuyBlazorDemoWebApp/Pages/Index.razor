@@ -1,14 +1,39 @@
 ﻿@page "/"
 @using BestBuyBlazorDemoWebApp.Data
+@using BestBuyBlazorDemoWebApp.Services
+@inject BrowserService Service
 @inject ProductRepo repo
 
 @{
     var products = repo.GetAllProducts();
 }
 
+<div style="border: 3px solid blue; padding: 25px;">
+    <h1>Window Dimensions</h1>
+
+    <p>Window Height: @Height</p>
+    <p>Window Width: @Width</p>
+
+    <button @onclick="GetDimensions">Get Dimensions</button>
+</div>
+
+
+@code {
+
+    public int Height { get; set; }
+    public int Width { get; set; }
+
+    private async Task GetDimensions()
+    {
+        var dimension = await Service.GetDimensions();
+        Height = dimension.Height;
+        Width = dimension.Width;
+    }
+}
+
 <h1>Products</h1>
 
-<table class="table table-striped table-dark table-hover">
+<table class="table">
     <tr>
         <th>ProductID</th>
         <th>Name</th>
@@ -20,7 +45,7 @@
 
     @foreach (var p in products)
     {
-        string isOnsale = p.OnSale == true ? "yes" : "no";
+        string isOnsale = p.OnSale == true ? "Yes" : "No";
 
         <tr>
             <td><a href="/ViewProduct/@p.ProductID">@p.ProductID</a></td>
@@ -32,3 +57,4 @@
         </tr>
     }
 </table>
+

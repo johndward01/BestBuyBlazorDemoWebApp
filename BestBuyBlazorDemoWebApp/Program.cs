@@ -1,4 +1,5 @@
 using BestBuyBlazorDemoWebApp.Data;
+using BestBuyBlazorDemoWebApp.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using MySql.Data.MySqlClient;
@@ -10,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddScoped<BrowserService>();
 builder.Services.AddScoped<ProductRepo>();
 builder.Services.AddScoped<IDbConnection>((s) =>
 {
